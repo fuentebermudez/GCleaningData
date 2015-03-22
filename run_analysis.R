@@ -39,3 +39,5 @@ meansAndStd<-datosTotal[,grepl("subject|activity|mean|std",names(datosTotal))]
 #Finally it's obtained the desired dataset grouping by subject and activity and applying the mean function to
 #each variable.
 tidy_data<-group_by(meansAndStd,subject,activity) %>% summarise_each(funs(mean))
+
+write.table(meansAndStd,file="tidy_data.txt",row.name=FALSE,sep=";")
